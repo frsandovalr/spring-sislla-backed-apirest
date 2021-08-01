@@ -1,15 +1,19 @@
 package ejercito.mil.pe.sislla.apirest.models.dao;
 
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
 
 import ejercito.mil.pe.sislla.apirest.models.entity.Usuario;
 
-public interface IUsuarioDao extends CrudRepository<Usuario, Long>{
+public interface IUsuarioDao extends JpaRepository<Usuario, Long>{
 	
 	public Usuario findByUsername(String username);
 	
-	@Query ("select u from Usuario u where u.apellidosNombres =?1")
-	public Usuario findByapellidosNombres(String apellidosNombres);
-
+	public Optional<Usuario> findById(Long id);
+	
+	
+	
 }

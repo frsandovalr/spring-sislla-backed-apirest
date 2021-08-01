@@ -19,7 +19,7 @@ import ejercito.mil.pe.sislla.apirest.models.dao.IUsuarioDao;
 import ejercito.mil.pe.sislla.apirest.models.entity.Usuario;
 
 @Service
-public class UsuarioService implements UserDetailsService{
+public class UsuarioService implements UserDetailsService, IUsuarioServiceDos {
 	
     private Logger logger = LoggerFactory.getLogger(UsuarioService.class);
 
@@ -45,6 +45,11 @@ public class UsuarioService implements UserDetailsService{
 				.collect(Collectors.toList());
 		
 		return new User(usuario.getUsername(), usuario.getPassword(), usuario.getEnabled(), true, true, true, authorities);
+	}
+
+	@Override
+	public Usuario findByUsername(String username) {
+		return usuarioDao.findByUsername(username);
 	}
 
 }

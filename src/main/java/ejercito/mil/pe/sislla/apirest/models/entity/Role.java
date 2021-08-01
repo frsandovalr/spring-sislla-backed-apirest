@@ -26,20 +26,11 @@ public class Role implements Serializable{
 	private String nombre;
 	
 	
-	
-	
-	
-	
 	public Long getId() {
 		return id;
 	}
 
-
-
-
-
-
-	public void setId(Long id) {
+    public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -60,12 +51,6 @@ public class Role implements Serializable{
 
 
 
-
-
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 }
